@@ -1,15 +1,102 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+html {
+  overflow-y: scroll;
+}
+body {
+  padding-top: 60px;
+}
+textarea {
+  resize: vertical;
+}
+.center {
+  text-align: center;
+}
+.center h1 {
+  margin-bottom: 50px;
+}
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #888;
+}
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: #777;
+}
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+header {
+  background-color: #fff;
+  color: #fff;
+  position: absolute;
+  height: 60px;
+  top: 100;
+  left: 0;
+  right: 0;
+  font-size: 18px;
+  line-height: 36px;
+  font-weight: bold;
+  padding-left: 15px;
+}
+#logo {
+  float: left;
+  margin-right: 6px;
+  font-size: 2em;
+  color: #fff;
+  
+  letter-spacing: -1px;
+  padding-top: 2px;
+  font-weight: bold;
+}
+#logo:hover {
+  color: red;
+  text-decoration: none;
+}
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+}
+input {
+  height: auto !important;
+}
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+}
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+.gravatar_edit {
+  margin-top: 15px;
+}
