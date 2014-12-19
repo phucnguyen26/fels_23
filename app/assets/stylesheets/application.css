@@ -100,3 +100,8 @@ input {
 .gravatar_edit {
   margin-top: 15px;
 }
+input.btn.btn-primary{
+  width: 200px;
+  height: 40px;
+  margin-left: 180px;
+}

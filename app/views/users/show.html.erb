@@ -1,0 +1,18 @@
+<img alt="Rails logo" height = "100" src="/assets/elearning-logo.png" />
+<% provide(:title, @user.name) %>
+<div class="row">
+  <aside class="col-md-4">
+    <% if logged_in? %>
+      <section class="user_info">
+        <h2>
+          <%= gravatar_for @user %>
+          Name : <%= @user.name%><br>
+          Email : <%= @user.email %>
+        </h2>
+      </section>
+    <%end%>
+  </aside>
+</div>
+<div class="center jumbotron">
+    <%= link_to "Login", login_path ,class: "btn btn-lg btn-primary" %>
+</div>
