@@ -1,16 +1,40 @@
 <img alt="Rails logo" height = "100" src="/assets/elearning-logo.png" />
 <% provide(:title, @user.name) %>
+<h1>User Information</h1>
 <div class="row">
   <aside class="col-md-4">
-    <% if logged_in? %>
-      <section class="user_info">
-        <h2>
-          <%= gravatar_for @user %>
-          Name : <%= @user.name%><br>
-          Email : <%= @user.email %>
-        </h2>
-      </section>
-    <%end%>
+    <%= render "follow_form" if logged_in? %>
+    <section class="user_info">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Information</th>
+            <th>Following(<%= @user.following.count %>)</th>
+            <th>Followers(<%= @user.followers.count %>)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              Name : <%= @user.name%><br>
+              Email : <%= @user.email %>
+            </td>
+            <td class ="following">
+              <% @user.following.each do |user_following|%>
+              <br><%= user_following.id %>.
+              <%= user_following.name %>
+              <%end%>
+            </td>
+            <td class ="followers">
+              <% @user.followers.each do |user_follower|%>
+              <br><%= user_follower.id %>.
+              <%= user_follower.name %>
+              <%end%>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
   </aside>
 </div>
 <div class="center jumbotron">

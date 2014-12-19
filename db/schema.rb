@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141218061937) do
+ActiveRecord::Schema.define(version: 20141219094819) do
+
+  create_table "activities", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "lesson_id"
+    t.datetime "finished_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "activities", ["lesson_id"], name: "index_activities_on_lesson_id", using: :btree
+  add_index "activities", ["user_id"], name: "index_activities_on_user_id", using: :btree
 
   create_table "answers", force: true do |t|
     t.string   "content"
