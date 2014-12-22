@@ -1,6 +1,6 @@
-class CreateLessonWordRelationships < ActiveRecord::Migration
+class CreateLessonWords < ActiveRecord::Migration
   def change
-    create_table :lesson_word_relationships do |t|
+    create_table :lesson_words do |t|
       t.references :lesson, index: true
       t.references :word, index: true
 

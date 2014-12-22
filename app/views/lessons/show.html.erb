@@ -1,0 +1,45 @@
+<h1>Lesson <%= @lesson.id %></h1>
+<font color="red"><h3>Result: <%= @lesson.result %> / <%= @lesson.number_words%></h3>
+</font>
+<div class="row">
+  <div class="span6 offset3">
+    <table class="table table-bordered" id="examination-list">
+      <thead>
+        <tr>
+          <th>Word</th>
+          <th>Your's answer</th>
+          <th>Correct answer</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @results.each do |result| %>
+            <tr>
+              <td><%= result.word.name %></td>
+                <% if !result.answer_id.nil? %>
+                  <td><%= Answer.find(result.answer_id).content %></td>
+                <% else %>
+                  <td></td>
+                <% end %>
+
+              <% result.word.answers.each do |answer|%>
+                <% if answer.is_correct %>
+                  <td><%= answer.content %></td>
+                <% end %>
+              <% end %>       
+
+              <% if !result.answer_id.nil? %>
+                <% if Answer.find(result.answer_id).is_correct %>
+                  <td><span class="glyphicon glyphicon-ok"></span></td>
+                  <% else %>
+                    <td><font color="red" class="glyphicon glyphicon-remove"></font></td>
+                  <% end %>
+                <% else%>
+                <td><font color="red" class="glyphicon glyphicon-remove"></font></td>
+              <% end %>
+            </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
