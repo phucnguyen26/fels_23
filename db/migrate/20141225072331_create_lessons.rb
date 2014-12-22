@@ -3,6 +3,7 @@ class CreateLessons < ActiveRecord::Migration
     create_table :lessons do |t|
       t.integer :result
       t.integer :number_words
+      t.references :user, index: true
       t.references :category, index: true
 
       t.timestamps

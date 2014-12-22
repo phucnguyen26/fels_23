@@ -8,4 +8,11 @@ Rails.application.routes.draw do
     resources :users
     resources :account_activations, only: [:edit]
     resources :relationships,       only: [:create, :destroy]
+    resources :lessons do
+        resources :results
+    end
+    resources :words
+    resources :categories do
+        resources "words", only: [:index]
+    end
 end
