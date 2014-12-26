@@ -3,7 +3,7 @@ class ResultsController < ApplicationController
     @result = Result.new
     @lesson = Lesson.find params[:lesson_id]
     lesson_word = next_question @lesson
-    
+
     if lesson_word.present?
       @word = Word.find lesson_word
       @answers = @word.answers
@@ -14,6 +14,12 @@ class ResultsController < ApplicationController
 
   def create
     @result = Result.new result_params
+    lesson = Lesson.find params[:lesson_id]
+    
+    @result.lesson_id = lesson.id
+    @result.user_id = current_user.id
+    @result.category_id = lesson.category_id
+
     if @result.save
       redirect_to :back
     else

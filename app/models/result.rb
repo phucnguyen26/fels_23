@@ -1,5 +1,6 @@
 class Result < ActiveRecord::Base
   before_save :update_lesson_correct
+  belongs_to :user
   belongs_to :category
   belongs_to :lesson
   belongs_to :word

@@ -2,8 +2,6 @@
 <h1>Start lesson</h1>
 <div class="row">
   <%= form_for [@lesson, @result] do |f| %>
-    <%= f.hidden_field :category_id, value: @lesson.category_id %>
-    <%= f.hidden_field :lesson_id, value: params[:lesson_id] %>
     <%= f.hidden_field :word_id, value: @word.id %>
     <div class="span6">
       <h3><%= @word.name %></h3>

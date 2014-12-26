@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141225072331) do
+ActiveRecord::Schema.define(version: 20141226123753) do
 
   create_table "answers", force: true do |t|
     t.string   "content"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20141225072331) do
   end
 
   create_table "results", force: true do |t|
+    t.integer  "user_id"
     t.integer  "category_id"
     t.integer  "lesson_id"
     t.integer  "word_id"
@@ -71,6 +72,7 @@ ActiveRecord::Schema.define(version: 20141225072331) do
   add_index "results", ["answer_id"], name: "index_results_on_answer_id", using: :btree
   add_index "results", ["category_id"], name: "index_results_on_category_id", using: :btree
   add_index "results", ["lesson_id"], name: "index_results_on_lesson_id", using: :btree
+  add_index "results", ["user_id"], name: "index_results_on_user_id", using: :btree
   add_index "results", ["word_id"], name: "index_results_on_word_id", using: :btree
 
   create_table "users", force: true do |t|

@@ -1,0 +1,14 @@
+<table class = "table table-striped table-bordered">
+  <thead>
+    <th>English</th>
+    <th>Meaning</th>
+  </thead>
+  <tbody>
+    <%@words.each do |word| %>
+      <tr>
+        <td><%= word.name %></td>
+        <td><%= word.meaning %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
