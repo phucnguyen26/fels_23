@@ -11,6 +11,7 @@
             <th>Information</th>
             <th>Following(<%= @user.following.count %>)</th>
             <th>Followers(<%= @user.followers.count %>)</th>
+            <th>Activities</th>
           </tr>
         </thead>
         <tbody>
@@ -29,6 +30,11 @@
               <% @user.followers.each do |user_follower|%>
               <br><%= user_follower.id %>.
               <%= user_follower.name %>
+              <%end%>
+            </td>
+            <td><% @lessons.each do |lesson|%>
+              Learned <%= lesson.number_words%> words in Lesson<%= lesson.id%>
+              -(<%= lesson.created_at%>)
               <%end%>
             </td>
           </tr>

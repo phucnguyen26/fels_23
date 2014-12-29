@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :lessons,dependent: :destroy
+  has_many :activities
 
   def User.digest string
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
@@ -60,5 +61,10 @@ class User < ActiveRecord::Base
 
   def followers? other_user
     followers.include? other_user
+  end
+
+  def user_lessons
+    lesson_ids = "SELECT lesson_id FROM activities WHERE user_id = :user_id"
+    Lesson.where("id IN (#{lesson_ids})", user_id: id)
   end
 end

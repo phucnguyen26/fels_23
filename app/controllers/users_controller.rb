@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find params[:id]
+    @lessons = @user.user_lessons
   end
 
   def edit
