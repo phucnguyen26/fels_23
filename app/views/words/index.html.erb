@@ -1,0 +1,19 @@
+<%= form_tag(words_path, method: :get, id: "filter",
+    class: "form-horizontal col-md-6") do %>
+  <div class = "form-group">
+    <%= label_tag :category, "Category: ", class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= select_tag :category_id,options_from_collection_for_select(@categories,
+        "id","name",params[:category_id]),class: "form-control" %>
+
+      <% ["all", "learned", "notlearned"].each do |filter_words| %>
+        
+        <%= radio_button_tag "choice",filter_words, @choice == filter_words %>
+        <%= label_tag "#{filter_words}"%>
+      <% end %>
+
+      <%= submit_tag "Filter", class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
+<%= render "word" %>
